@@ -55,10 +55,10 @@ def battery():
         if battery_data['POWER_SUPPLY_STATUS'] == 'Charging':
             icon = '\uf0e7'
         else:
-            icon = battery_percentage_to_icon(battery_percentage)
+            icon = battery_percentage_to_icon(percentage)
 
         d = {
-            'full_text': '{}{}% {}:{}'.format(icon, percentage, hours_left, minutes_left)
+            'full_text': '{} {}% {}:{}'.format(icon, percentage, hours_left, minutes_left)
         }
         return d
 
