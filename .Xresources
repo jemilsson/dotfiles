@@ -1,0 +1,74 @@
+! Google Material Design
+
+
+#define bg_color #303030
+#define fg_color #eceff1
+
+
+*background 		: bg_color
+*foreground 		: fg_color
+
+
+! black
+*color0  			: #000000
+*color8  			: #212121
+! red
+*color1  			: #F44336
+*color9  			: #FF5722
+! green
+*color2  			: #4CAF50
+*color10 			: #CDDC39
+! yellow
+*color3  			: #FFC107
+*color11 			: #FFEB3B
+! blue
+*color4  			: #3F51B5
+*color12 			: #2196F3
+! magenta
+*color5  			: #673AB7
+*color13 			: #9C27B0
+! cyan
+*color6  			: #009688
+*color14 			: #00BCD4
+! white
+*color7  			: #9E9E9E
+*color15 			: #FFFFFF
+
+
+*font: xft:Inconsolata for Powerline:pixelsize=10
+
+Xft*antialias:          true
+
+
+! rxvt-unicode specific settings
+URxvt*scrollBar:          True
+
+URxvt*scrollColor:        #212121
+URxvt*scrollBar_floating: true
+URxvt*thickness:          1
+URxvt*scrollstyle:        plain
+URxvt*saveLines:          65535y
+
+URxvt*scrollBar_right:        true
+
+URxvt*cursorBlink: true
+! URxvt*cursorUnderline: true
+
+URxvt*depth:              32
+
+URxvt*intensityStyles:    True
+URxvt*.font: xft:Hack:size=8
+
+
+URxvt.depth: 32
+! URxvt.background: [90]#000000
+
+urxvt*transparent: true
+urxvt*shading: 30
+
+
+! Sane defaults for dzen2
+! dzen2.font:       xft:Share Tech:pixelsize=10
+dzen2.foreground: #22EE11
+dzen2.background: black
+
