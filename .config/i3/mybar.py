@@ -26,6 +26,18 @@ def hostname():
     return d
 
 
+def battery_percentage_to_icon(battery_percentage):
+    icons = {
+        0 : '\uf244',
+        1 : '\uf243',
+        2 : '\uf242',
+        3 : '\uf241',
+        4 : '\uf240'
+    }
+    level = int(battery_percentage/100.0*4+0.5)
+    return icons[level]
+
+
 from pathlib import Path
 def battery():
     path = Path('/sys/class/power_supply/BAT0/uevent')
@@ -38,9 +50,15 @@ def battery():
         float_hours_left = int(battery_data['POWER_SUPPLY_ENERGY_NOW']) / float(battery_data['POWER_SUPPLY_POWER_NOW'])
         hours_left = int(float_hours_left)
         minutes_left = int(float_hours_left * 60) % 60
+        percentage = int(battery_data['POWER_SUPPLY_CAPACITY'])
+
+        if battery_data['POWER_SUPPLY_STATUS'] == 'Charging':
+            icon = '\uf0e7'
+        else:
+            icon = battery_percentage_to_icon(battery_percentage)
 
         d = {
-            'full_text': '\uf240 {}% {}:{}'.format(battery_data['POWER_SUPPLY_CAPACITY'], hours_left, minutes_left)
+            'full_text': '{}{}% {}:{}'.format(icon, percentage, hours_left, minutes_left)
         }
         return d
 
