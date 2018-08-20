@@ -1,4 +1,11 @@
 "*":
+  "atom-beautify":
+    python:
+      default_beautifier: "yapf"
+      formatter: "yapf"
+  "autocomplete-python":
+    pythonPaths: "python"
+    useKite: false
   core:
     customFileTypes:
       "source.ini": [
@@ -20,6 +27,11 @@
     userId: "846f9223-808d-42b9-8ec2-bd61d0e75865"
   "language-elm":
     autocompleteEnabled: false
+  "linter-pylama":
+    configFileLoad: "Use pylama config"
+    isortOnSave: true
+    useIsort: true
+    usePep257: false
   minimap:
     plugins:
       cursorline: true

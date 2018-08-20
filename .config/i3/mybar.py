@@ -7,9 +7,6 @@ from datetime import datetime
 import sys
 import os
 
-
-
-
 from getpass import getuser
 def user():
     d = {
@@ -28,11 +25,11 @@ def hostname():
 
 def battery_percentage_to_icon(battery_percentage):
     icons = {
-        0 : '\uf244',
-        1 : '\uf243',
-        2 : '\uf242',
-        3 : '\uf241',
-        4 : '\uf240'
+        0: '\uf244',
+        1: '\uf243',
+        2: '\uf242',
+        3: '\uf241',
+        4: '\uf240'
     }
     level = int(battery_percentage/100.0*4+0.5)
     return icons[level]
@@ -47,7 +44,12 @@ def battery():
         battery_text = f.read()
         battery_data = dict([row.split('=') for row in battery_text.strip().splitlines()])
 
-        float_hours_left = int(battery_data['POWER_SUPPLY_ENERGY_NOW']) / float(battery_data['POWER_SUPPLY_POWER_NOW'])
+        power_usage = float(battery_data['POWER_SUPPLY_POWER_NOW'])
+
+        if power_usage != 0.0:
+            float_hours_left = int(battery_data['POWER_SUPPLY_ENERGY_NOW']) / power_usage
+        else:
+            float_hours_left = 10.0
         hours_left = int(float_hours_left)
         minutes_left = int(float_hours_left * 60) % 60
         percentage = int(battery_data['POWER_SUPPLY_CAPACITY'])
