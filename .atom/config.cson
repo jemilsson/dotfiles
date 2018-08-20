@@ -1,10 +1,11 @@
 "*":
   "atom-beautify":
     python:
+      beautify_on_save: true
       default_beautifier: "yapf"
       formatter: "yapf"
   "autocomplete-python":
-    pythonPaths: "python"
+    pythonPaths: "/run/current-system/sw/bin/python"
     useKite: false
   core:
     customFileTypes:
