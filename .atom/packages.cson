@@ -1,0 +1,13 @@
+packages: [
+  "file-icons"
+  "git-plus"
+  "github-atom-light-syntax"
+  "markdown-writer"
+  "minimap"
+  "minimap-cursorline"
+  "minimap-find-and-replace"
+  "minimap-highlight-selected"
+  "minimap-selection"
+  "nix"
+  "package-sync"
+]
