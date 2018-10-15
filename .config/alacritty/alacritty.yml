@@ -85,13 +85,17 @@ render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
+
+dynamic_title: true
 custom_cursor_colors: false
+
+background_opacity: 0.95
 
 # Colors (Tomorrow Night Bright)
 colors:
   # Default colors
   primary:
-    background: '0x303030'
+    background: '0x000000'
     foreground: '0xffffff'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
@@ -158,7 +162,7 @@ visual_bell:
   animation: EaseOutExpo
   duration: 0
 
-background_opacity: 1.0
+#background_opacity: 1.0
 
 # Key bindings
 #
