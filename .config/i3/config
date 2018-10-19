@@ -28,7 +28,7 @@ bindsym $mod+Shift+q kill
 
 ##startapps
 #Set background image
-#exec feh --bg-scale ~/.config/wallpapers/materialsweden.jpg --no-startup-id
+exec feh --bg-tile --randomize  /etc/wallpapers/* --no-startup-id
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec /nix/store/fslvwld2p4vrjrlvrhls9jgns8i0n6j5-dmenu-4.6/bin/dmenu_run
