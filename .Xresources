@@ -1,9 +1,9 @@
 ! Google Material Design
 
-
 #define bg_color #303030
 #define fg_color #eceff1
 
+#include "/run/current-system/sw/share/X11-fonts"
 
 *background 		: bg_color
 *foreground 		: fg_color
@@ -35,7 +35,7 @@
 *color15 			: #FFFFFF
 
 
-*font: xft:Inconsolata for Powerline:pixelsize=10
+#*font: ttf:Hack:pixelsize=10
 
 Xft*antialias:          true
 

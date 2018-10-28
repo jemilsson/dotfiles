@@ -89,7 +89,7 @@ render_timer: false
 dynamic_title: true
 custom_cursor_colors: false
 
-background_opacity: 0.95
+background_opacity: 0.5
 
 # Colors (Tomorrow Night Bright)
 colors:
