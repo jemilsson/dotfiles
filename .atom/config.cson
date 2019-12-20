@@ -33,6 +33,8 @@
     isortOnSave: true
     useIsort: true
     usePep257: false
+  "linter-ui-default":
+    panelHeight: 263.3333740234375
   minimap:
     plugins:
       cursorline: true
