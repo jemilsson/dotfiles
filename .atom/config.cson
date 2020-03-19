@@ -1,40 +1,6 @@
 "*":
-  "atom-beautify":
-    python:
-      beautify_on_save: true
-      default_beautifier: "yapf"
-      formatter: "yapf"
-  "autocomplete-python":
-    pythonPaths: "/run/current-system/sw/bin/python"
-    useKite: false
-  core:
-    customFileTypes:
-      "source.ini": [
-        ".buckconfig"
-        ".hgrc"
-      ]
-      "source.json": [
-        "BUCK.autodeps"
-      ]
-      "source.python": [
-        "BUCK"
-      ]
-    telemetryConsent: "no"
-    themes: [
-      "one-light-ui"
-      "one-light-syntax"
-    ]
   "exception-reporting":
-    userId: "846f9223-808d-42b9-8ec2-bd61d0e75865"
-  "language-elm":
-    autocompleteEnabled: false
-  "linter-pylama":
-    configFileLoad: "Use pylama config"
-    isortOnSave: true
-    useIsort: true
-    usePep257: false
-  "linter-ui-default":
-    panelHeight: 263.3333740234375
+    userId: "4c638226-c448-4bdf-ae81-f9567aed9567"
   minimap:
     plugins:
       cursorline: true
@@ -45,6 +11,3 @@
       "highlight-selectedDecorationsZIndex": 0
       selection: true
       selectionDecorationsZIndex: 0
-  "package-sync":
-    createOnChange: true
-    forceOverwrite: true
