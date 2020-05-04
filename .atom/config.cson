@@ -1,4 +1,6 @@
 "*":
+  editor:
+    fontSize: 12
   "exception-reporting":
     userId: "4c638226-c448-4bdf-ae81-f9567aed9567"
   minimap:
@@ -11,3 +13,5 @@
       "highlight-selectedDecorationsZIndex": 0
       selection: true
       selectionDecorationsZIndex: 0
+  "tree-view":
+    hideVcsIgnoredFiles: true

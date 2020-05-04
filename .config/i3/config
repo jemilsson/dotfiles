@@ -177,3 +177,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bindsym XF86AudioStop exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+
+for_window [title="Microsoft Teams Notification"] floating enable
+
