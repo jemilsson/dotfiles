@@ -150,20 +150,20 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#        status_command python3  ~/.config/i3/mybar.py
-#	position top
-#
-#	colors {
-#		    background #000000
-#	      	    separator  #000000
-#
-#		    #                  border             background         text
-#		    focused_workspace  #000000         	  #000000            #ffffff
-#		    inactive_workspace #000000            #000000            #424242
-#		    urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-#	    }
-#}
+bar {
+        status_command python3  ~/.config/i3/mybar.py
+	position top
+
+	colors {
+		    background #000000
+	      	    separator  #000000
+
+		    #                  border             background         text
+		    focused_workspace  #000000         	  #000000            #ffffff
+		    inactive_workspace #000000            #000000            #424242
+		    urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	    }
+}
 
 # window colors
 #                       border              background         text                 indicator
