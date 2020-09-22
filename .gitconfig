@@ -1,7 +1,7 @@
 [user]
-	email = jonas.emilsson@gmail.com
 	name = Jonas Emilsson
 	signingkey = 0x2C677E188CD83F8C
+	email = jonas.emilsson@gmail.com
 [color]
 	ui = auto
 [commit]
