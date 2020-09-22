@@ -1,4 +1,12 @@
 [user]
 	email = jonas.emilsson@gmail.com
 	name = Jonas Emilsson
-	signingkey = 0x1104DEF6F3EA5AB1
+	signingkey = 0x2C677E188CD83F8C
+[color]
+	ui = auto
+[commit]
+	gpgsign = true
+[tag]
+	forceSignAnnotated = true
+[submodule]
+	recurse = true
