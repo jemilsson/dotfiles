@@ -13,6 +13,13 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
 hide_edge_borders both
+#gaps inner 0
+#gaps outer 0
+#gaps horizontal 0
+#gaps vertical 0
+#gaps right 0
+#gaps left 0
+
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -22,20 +29,15 @@ font pango:Roboto ,FontAwesome 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec foot
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 ##startapps
 #Set background image
-exec feh --bg-tile --randomize  /etc/wallpapers/* --no-startup-id
+output "*" bg /etc/wallpapers/3.jpg tile
 
-#exec taffybar
-
-# start dmenu (a program launcher)
-bindsym $mod+d exec /nix/store/fslvwld2p4vrjrlvrhls9jgns8i0n6j5-dmenu-4.6/bin/dmenu_run
-# start synapse launcher
 bindsym $mod+q exec synapse
 
 # change focus
@@ -122,6 +124,17 @@ bindsym $mod+Shift+t exec xrdb ~/.Xresources
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
+
+#bindsym $mod+Escape exec "grim /tmp/screenshot.png && convert /tmp/screenshot.png -scale 12.5% -scale 800% -type Grayscale /tmp/screenshot.png && swaylock -i /tmp/screenshot.png"
+bindsym $mod+Escape exec "swaylock -t -i /etc/wallpapers/3.jpg"
+
+
+exec swayidle -w \
+	timeout 600 'swaylock -i /etc/wallpapers/3.jpg -t' \
+	timeout 3600 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep 'playerctl pause' \
 
 
 input * {
@@ -182,6 +195,7 @@ client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
 
+
 # Media player controls
 bindsym XF86AudioStop exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
@@ -190,3 +204,5 @@ bindsym XF86AudioPrev exec playerctl previous
 
 for_window [title="Microsoft Teams Notification"] floating enable
 for_window [title="synapse"] border pixel 0
+
+#for_window [class="^.*"] border pixel 0

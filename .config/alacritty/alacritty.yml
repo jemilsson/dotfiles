@@ -77,7 +77,6 @@ font:
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
   # false.
-  use_thin_strokes: true
 
 # Should display the render timer
 #render_timer: false
@@ -87,7 +86,7 @@ font:
 
 # dynamic_title: true
 
-background_opacity: 0.85
+window.opacity: 0.85
 
 # Colors (Tomorrow Night Bright)
 colors:
@@ -210,8 +209,7 @@ key_bindings:
   - { key: W,        mods: Command, action: Quit                         }
   - { key: Insert,   mods: Shift,   action: PasteSelection               }
   - { key: Key0,     mods: Control, action: ResetFontSize                }
-  - { key: Add,   mods: Control, action: IncreaseFontSize             }
-  - { key: Subtract, mods: Control, action: DecreaseFontSize             }
+  - { key: Plus,   mods: Control, action: IncreaseFontSize             }
   - { key: Minus, mods: Control, action: DecreaseFontSize             }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }

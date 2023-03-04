@@ -5,8 +5,11 @@
 [color]
 	ui = auto
 [commit]
-	gpgsign = true
+	#gpgsign = true
 [tag]
-	forceSignAnnotated = true
+	#forceSignAnnotated = true
 [submodule]
 	recurse = true
+[push]
+	autoSetupRemote = true
+	autoSetupRemote = true

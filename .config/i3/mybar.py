@@ -2,8 +2,7 @@
 import asyncio
 import json
 
-from datetime import datetime
-
+from datetime import datetime, timedelta
 import sys
 import os
 
@@ -64,6 +63,43 @@ def battery():
         return d
 
 
+def metric_time():
+    t1 = datetime.now()
+    t0 = t1.replace(hour=0, minute=0, second=0, microsecond=0)
+
+    year = t0.replace(month=1, day=1)
+
+    dd = t0 - year
+
+    days = dd.days
+
+    td = t1 - t0
+
+    day = td / timedelta(days=1)
+
+    metric_time = days + day
+
+    d = str(int(day * 10**9))
+
+    s = '{}.{},{}'.format(days, d[0:3], d[3:5])
+    
+
+    
+    return {'full_text': s}
+
+def get_legacy_time():
+    now = datetime.now()
+    sleep_time = (1000000 - now.microsecond) / 1000000.0
+
+    return {
+            'full_text': now.strftime(' %a, %Y-%m-%d %H:%M:%S'),
+            'instance': 'asd',
+            'markup': 'none',
+            'urgent': False,
+            'next_update': (1000000 - datetime.now().microsecond) / 1000000.0
+        }
+
+
 def get_message():
 
     message = [
@@ -79,7 +115,8 @@ def get_message():
             'instance': 'asd',
             'markup': 'none',
             'urgent': False
-        }
+        },
+        metric_time()
     ]
 
     return json.dumps(message)
@@ -93,7 +130,8 @@ async def hello_world():
     print(get_message())
     #print('{}'.format(json.dumps([{'full_text': 'hello_world'}])))
     while True:
-        sleep_time = (1000000 - datetime.now().microsecond) / 1000000.0
+        #sleep_time = (1000000 - datetime.now().microsecond) / 1000000.0
+        sleep_time = 0.864
         await asyncio.sleep(sleep_time)
         sys.stdout.write((',{}\n'.format(get_message())))
         sys.stdout.flush()
