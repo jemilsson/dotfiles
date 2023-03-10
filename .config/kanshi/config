@@ -1,0 +1,14 @@
+profile {
+        output "Unknown 0x07C8 0x00000000" enable scale 1.60 mode 3840x2160@60Hz
+}
+
+profile {
+	output "Philips Consumer Electronics Company PHL 276E8V 0x00000D2B" enable position 0,0 mode 3840x2160@29.981Hz
+	output "Philips Consumer Electronics Company PHL 276E8V 0x00000CEA" enable position 3840,0 mode 3840x2160@29.981Hz
+	output "Unknown 0x07C8 0x00000000" enable scale 1.93 position 7680,0 mode 3840x2160@60Hz
+}
+profile {
+	output "Samsung Electric Company SAMSUNG 0x00000101" enable position 0,0 mode 3840x2160@30Hz
+	output "Unknown 0x07C8 0x00000000" enable position 3840,0 scale 1.60 mode 3840x2160@60Hz
+
+}
