@@ -3,6 +3,7 @@ import asyncio
 import json
 
 from datetime import datetime, timedelta
+from pymeeus.Sun import Sun
 import sys
 import os
 
@@ -32,58 +33,64 @@ from pathlib import Path
 
 
 def battery():
-    path = Path('/sys/class/power_supply/BAT0/uevent')
-    if path.is_file():
+    try:
+        path = Path('/sys/class/power_supply/BAT0/uevent')
+        if path.is_file():
 
-        f = path.open()
-        battery_text = f.read()
-        battery_data = dict(
-            [row.split('=') for row in battery_text.strip().splitlines()])
+            f = path.open()
+            battery_text = f.read()
+            battery_data = dict(
+                [row.split('=') for row in battery_text.strip().splitlines()])
 
-        power_usage = float(battery_data['POWER_SUPPLY_POWER_NOW'])
+            power_usage = float(battery_data['POWER_SUPPLY_POWER_NOW'])
 
-        if power_usage != 0.0:
-            float_hours_left = int(
-                battery_data['POWER_SUPPLY_ENERGY_NOW']) / power_usage
-        else:
-            float_hours_left = 10.0
-        hours_left = int(float_hours_left)
-        minutes_left = int(float_hours_left * 60) % 60
-        percentage = int(battery_data['POWER_SUPPLY_CAPACITY'])
+            if power_usage != 0.0:
+                float_hours_left = int(
+                    battery_data['POWER_SUPPLY_ENERGY_NOW']) / power_usage
+            else:
+                float_hours_left = 10.0
+            hours_left = int(float_hours_left)
+            minutes_left = int(float_hours_left * 60) % 60
+            percentage = int(battery_data['POWER_SUPPLY_CAPACITY'])
 
-        if battery_data['POWER_SUPPLY_STATUS'] == 'Charging':
-            icon = '\uf0e7'
-        else:
-            icon = battery_percentage_to_icon(percentage)
+            if battery_data['POWER_SUPPLY_STATUS'] == 'Charging':
+                icon = '\uf0e7'
+            else:
+                icon = battery_percentage_to_icon(percentage)
 
-        d = {
-            'full_text':
-            '{} {}% {}:{}'.format(icon, percentage, hours_left, minutes_left)
-        }
-        return d
+            d = {
+                'full_text':
+                '{} {}% {}:{}'.format(icon, percentage, hours_left, minutes_left)
+            }
+            return d
+    except:
+        pass
 
 
 def metric_time():
     t1 = datetime.now()
-    t0 = t1.replace(hour=0, minute=0, second=0, microsecond=0)
 
-    year = t0.replace(month=1, day=1)
+    last_year = t1.year-1
+    target = "winter"
 
-    dd = t0 - year
+    solstice_epoch = Sun.get_equinox_solstice(last_year, target=target)
 
-    days = dd.days
+    midwinter_solstice = solstice_epoch.get_full_date()
+
+    #print(midwinter_solstice)
+
+
+    t0 = datetime(year=midwinter_solstice[0], month=midwinter_solstice[1], day=midwinter_solstice[2])
 
     td = t1 - t0
 
-    day = td / timedelta(days=1)
+    days = td.days
 
-    metric_time = days + day
+    day = (td-timedelta(days=days)) / timedelta(days=1)
 
     d = str(int(day * 10**9))
 
     s = '{}.{},{}'.format(days, d[0:3], d[3:5])
-    
-
     
     return {'full_text': s}
 

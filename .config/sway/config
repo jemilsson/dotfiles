@@ -4,6 +4,10 @@
 
 set $mod Mod4
 
+
+exec sleep 5; systemctl --user start kanshi.service
+
+
 output eDP-1 scale 1.6
 
 set $bg-color 	         #212121
