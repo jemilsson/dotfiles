@@ -3,15 +3,18 @@ profile work {
 	output "Philips Consumer Electronics Company PHL 276E8V 0x00000CEA" enable position 3840,0 mode 3840x2160@29.981Hz
 	output "BOE 0x07C8 Unknown" enable scale 2 position 7680,0 mode 3840x2160@48.000Hz
 }
-profile {
-	output "Philips Consumer Electronics Company PHL 276E8V 0x00000D2B" enable position 0,0 mode 3840x2160@59.996Hz
-	output "Philips Consumer Electronics Company PHL 276E8V 0x00000CEA" enable position 3840,0 mode 3840x2160@59.996Hz
+profile office {
+	output "Philips Consumer Electronics Company PHL 276E8V 0x00000D2B" enable scale 1 position 0,0 mode 3840x2160@59.996Hz
+	output "Philips Consumer Electronics Company PHL 276E8V 0x00000CEA" enable scale 1 position 3840,0 mode 3840x2160@59.996Hz
 	output "eDP-1" enable scale 1 position 7680,0 mode 1920x1200@60.003Hz
 }
-profile {
+profile home1 {
 	output "Samsung Electric Company SAMSUNG 0x00000101" enable position 0,0 mode 3840x2160@30Hz
 	output "BOE 0x07C8 Unknown" enable position 3840,0 scale 1.60 mode 3840x2160@60Hz
 }
 profile onTheMove {
         output "BOE 0x07C8 Unknown" enable scale 1.60 mode 3840x2160@48.000Hz
+}
+profile onTheMoveNew {
+        output "eDP-1" enable scale 1 position 7680,0 mode 1920x1200@60.003Hz
 }
