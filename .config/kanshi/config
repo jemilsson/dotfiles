@@ -16,5 +16,13 @@ profile onTheMove {
         output "BOE 0x07C8 Unknown" enable scale 1.60 mode 3840x2160@48.000Hz
 }
 profile onTheMoveNew {
-        output "eDP-1" enable scale 1 position 7680,0 mode 1920x1200@60.003Hz
+        output "eDP-1" enable scale 1.0 mode 1920x1200@60.003Hz position 0,0
+}
+profile HdmiMirror {
+		output "HDMI-A-1" enable mode 3840x2160@60.000Hz position 0,0 
+        output "eDP-1" enable mode 1920x1200@60.003Hz position 3840,0
+}
+profile homeDock {
+	output "DP-3" enable scale 1.0 mode 3840x2160@60.000Hz position 0,0 
+	output "eDP-1" enable scale 1.0 mode 1920x1200@60.003Hz position 3840,0
 }
